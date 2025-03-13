@@ -1,4 +1,4 @@
-package com.github.rabbitmq.fanout;
+package com.github.rabbitmq.direct;
 
 import com.github.rabbitmq.RabbitMQConfig;
 import com.rabbitmq.client.*;
@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
-import static com.github.rabbitmq.RabbitMQConstants.FANOUT_QUEUE_1_NAME;
+import static com.github.rabbitmq.RabbitMQConstants.DIRECT_QUEUE_INFOS_NAME;
 
-public class FanoutConsumer {
+public class DirectConsumer {
 
     public static void main(String[] args) {
         try (Connection connection = RabbitMQConfig.getRabbitMQConnection();
@@ -30,7 +30,7 @@ public class FanoutConsumer {
                 }
             };
             // Start consuming messages from the specified queue without auto-acknowledgement
-            channel.basicConsume(FANOUT_QUEUE_1_NAME, false, consumer);
+            channel.basicConsume(DIRECT_QUEUE_INFOS_NAME, false, consumer);
             System.out.println("Waiting for messages. Press enter to exit.");
             System.in.read();
 

@@ -13,32 +13,31 @@ import static com.github.rabbitmq.RabbitMQConstants.*;
 public class FanoutPublisher {
 
     public static void main(String[] args) {
-        // Using try-with-resources to ensure resources are closed properly
         try (Connection connection = RabbitMQConfig.getRabbitMQConnection();
              Channel channel = connection.createChannel()) {
 
             // Declare a fanout exchange, durable and non-auto-delete
-            channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.FANOUT, true);
+            channel.exchangeDeclare(FANOUT_EXCHANGE_NAME, BuiltinExchangeType.FANOUT, true);
 
             // Declare durable queues
-            channel.queueDeclare(QUEUE1_NAME, true, false, false, null);
-            channel.queueDeclare(QUEUE2_NAME, true, false, false, null);
+            channel.queueDeclare(FANOUT_QUEUE_1_NAME, true, false, false, null);
+            channel.queueDeclare(FANOUT_QUEUE_2_NAME, true, false, false, null);
 
             // Bind queues to the exchange
-            channel.queueBind(QUEUE1_NAME, EXCHANGE_NAME, "");
-            channel.queueBind(QUEUE2_NAME, EXCHANGE_NAME, "");
+            channel.queueBind(FANOUT_QUEUE_1_NAME, FANOUT_EXCHANGE_NAME, "");
+            channel.queueBind(FANOUT_QUEUE_2_NAME, FANOUT_EXCHANGE_NAME, "");
 
             // Publish messages to the exchange
-            channel.basicPublish(EXCHANGE_NAME, "", null, MESSAGE_1.getBytes());
-            channel.basicPublish(EXCHANGE_NAME, "", null, MESSAGE_2.getBytes());
+            channel.basicPublish(FANOUT_EXCHANGE_NAME, "", null, "Message 1".getBytes());
+            channel.basicPublish(FANOUT_EXCHANGE_NAME, "", null, "Message 2".getBytes());
 
             System.out.println("Messages published. Press enter to exit.");
             System.in.read();
 
             // Clean up: delete queues and exchange
-            channel.queueDelete(QUEUE1_NAME);
-            channel.queueDelete(QUEUE2_NAME);
-            channel.exchangeDelete(EXCHANGE_NAME);
+            channel.queueDelete(FANOUT_QUEUE_1_NAME);
+            channel.queueDelete(FANOUT_QUEUE_2_NAME);
+            channel.exchangeDelete(FANOUT_EXCHANGE_NAME);
 
         } catch (IOException | TimeoutException e) {
             System.err.println("Error occurred: " + e.getMessage());
