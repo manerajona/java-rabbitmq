@@ -19,6 +19,21 @@ public class RabbitMQConstants {
     public static final String DIRECT_ROUTING_KEY_WARNING = "warning";
     public static final String DIRECT_ROUTING_KEY_ERROR = "error";
 
+    // Topic exchange
+    public static final String TOPIC_EXCHANGE_NAME = "ex.topic";
+    // Topic queues
+    public static final String TOPIC_QUEUE_IMG_1_NAME = "my.img1";
+    public static final String TOPIC_QUEUE_IMG_2_NAME = "my.img2";
+    public static final String TOPIC_QUEUE_IMG_3_NAME = "my.img3";
+    // Topic binding keys
+    public static final String TOPIC_BINDING_KEY_IMG_1 = "*.image.*";
+    public static final String TOPIC_BINDING_KEY_IMG_2 = "#.image";
+    public static final String TOPIC_BINDING_KEY_IMG_3 = "image.#";
+    // Topic routing keys
+    public static final String TOPIC_ROUTING_KEY_1 = "convert.image.bmp";
+    public static final String TOPIC_ROUTING_KEY_2 = "convert.bitmap.image";
+    public static final String TOPIC_ROUTING_KEY_3 = "image.bitmap.32bit";
+
     private RabbitMQConstants() {
 
     }
