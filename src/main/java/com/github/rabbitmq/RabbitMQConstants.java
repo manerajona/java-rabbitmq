@@ -34,6 +34,16 @@ public class RabbitMQConstants {
     public static final String TOPIC_ROUTING_KEY_2 = "convert.bitmap.image";
     public static final String TOPIC_ROUTING_KEY_3 = "image.bitmap.32bit";
 
+    // Headers exchange
+    public static final String HEADERS_EXCHANGE_NAME = "ex.headers";
+    // Headers queues
+    public static final String HEADERS_QUEUE_JPEG_NAME = "my.jpeg";
+    public static final String HEADERS_QUEUE_BPM_NAME = "my.bpm";
+    // Header keys
+    public static final String HEADER_X_MATCH = "x-match";
+    public static final String HEADER_TYPE = "type";
+    public static final String HEADER_FORMAT = "format";
+
     private RabbitMQConstants() {
 
     }
