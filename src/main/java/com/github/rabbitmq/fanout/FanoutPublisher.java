@@ -16,6 +16,9 @@ public class FanoutPublisher {
         try (Connection connection = RabbitMQConfig.getRabbitMQConnection();
              Channel channel = connection.createChannel()) {
 
+            // Enable publisher confirms
+            channel.confirmSelect();
+
             // Declare a fanout exchange, durable and non-auto-delete
             channel.exchangeDeclare(FANOUT_EXCHANGE_NAME, BuiltinExchangeType.FANOUT, true);
 
@@ -31,15 +34,10 @@ public class FanoutPublisher {
             channel.basicPublish(FANOUT_EXCHANGE_NAME, "", null, "Message 1".getBytes());
             channel.basicPublish(FANOUT_EXCHANGE_NAME, "", null, "Message 2".getBytes());
 
-            System.out.println("Messages published. Press enter to exit.");
-            System.in.read();
+            // Wait until all published messages are confirmed by the broker
+            channel.waitForConfirms();
 
-            // Clean up: delete queues and exchange
-            channel.queueDelete(FANOUT_QUEUE_1_NAME);
-            channel.queueDelete(FANOUT_QUEUE_2_NAME);
-            channel.exchangeDelete(FANOUT_EXCHANGE_NAME);
-
-        } catch (IOException | TimeoutException e) {
+        } catch (IOException | TimeoutException | InterruptedException e) {
             System.err.println("Error occurred: " + e.getMessage());
             e.printStackTrace();
         }

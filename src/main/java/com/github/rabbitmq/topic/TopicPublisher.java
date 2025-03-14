@@ -39,6 +39,7 @@ public class TopicPublisher {
 
             //Wait until all published messages are confirmed
             channel.waitForConfirms();
+
         } catch (IOException | TimeoutException | InterruptedException e) {
             System.err.println("Error occurred: " + e.getMessage());
             e.printStackTrace();
