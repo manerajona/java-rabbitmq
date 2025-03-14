@@ -33,8 +33,7 @@ public class WorkQueuesConsumer {
             }
         };
         // Start consuming messages from the specified queue without auto-acknowledgement
-        channel.basicConsume(TASK_QUEUE_NAME, false, deliverCallback, consumerTag -> {
-        });
+        channel.basicConsume(TASK_QUEUE_NAME, false, deliverCallback, consumerTag -> {});
     }
 
     private static void doWork(String task) {
