@@ -8,7 +8,7 @@ import com.rabbitmq.client.DeliverCallback;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-import static com.github.rabbitmq.workqueues.WorkQueuesPublisher.TASK_QUEUE_NAME;
+import static com.github.rabbitmq.workqueues.Constants.TASK_QUEUE_NAME;
 
 public class WorkQueuesConsumer {
 

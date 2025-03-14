@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
-import static com.github.rabbitmq.ex2ex.Ex2ExPublisher.QUEUE_1;
+import static com.github.rabbitmq.ex2ex.Constants.QUEUE_1;
 
 public class Ex2ExConsumer {
 

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
-import static com.github.rabbitmq.RabbitMQConstants.HEADERS_QUEUE_JPEG_NAME;
+import static com.github.rabbitmq.headers.Constants.HEADERS_QUEUE_JPEG_NAME;
 
 public class HeadersConsumer {
 

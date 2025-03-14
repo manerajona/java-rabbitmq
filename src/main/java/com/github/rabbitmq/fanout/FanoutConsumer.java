@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
-import static com.github.rabbitmq.RabbitMQConstants.FANOUT_QUEUE_1_NAME;
+import static com.github.rabbitmq.fanout.Constants.FANOUT_QUEUE_1_NAME;
 
 public class FanoutConsumer {
 

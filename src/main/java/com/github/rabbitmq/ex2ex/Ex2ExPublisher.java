@@ -9,16 +9,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
+import static com.github.rabbitmq.ex2ex.Constants.*;
+
 public class Ex2ExPublisher {
-
-    static final String EXCHANGE_1 = "ex1";
-    static final String EXCHANGE_2 = "ex2";
-
-    static final String QUEUE_1 = "q1";
-    static final String QUEUE_2 = "q2";
-
-    static final String ROUTING_KEY_1 = "k1";
-    static final String ROUTING_KEY_2 = "k2";
 
     public static void main(String[] args) {
         try (Connection connection = RabbitMQConfig.getRabbitMQConnection();

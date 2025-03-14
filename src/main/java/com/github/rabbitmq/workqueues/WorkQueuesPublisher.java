@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
-public class WorkQueuesPublisher {
+import static com.github.rabbitmq.workqueues.Constants.TASK_QUEUE_NAME;
 
-    static final String TASK_QUEUE_NAME = "task_queue";
+public class WorkQueuesPublisher {
 
     public static void main(String[] args) {
         try (Connection connection = RabbitMQConfig.getRabbitMQConnection();

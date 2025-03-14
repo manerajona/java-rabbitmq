@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
-import static com.github.rabbitmq.RabbitMQConstants.*;
+import static com.github.rabbitmq.headers.Constants.*;
 
 public class HeadersPublisher {
 

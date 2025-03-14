@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
-import static com.github.rabbitmq.RabbitMQConstants.TOPIC_QUEUE_IMG_1_NAME;
+import static com.github.rabbitmq.topic.Constants.TOPIC_QUEUE_IMG_1_NAME;
 
 public class TopicConsumer {
 

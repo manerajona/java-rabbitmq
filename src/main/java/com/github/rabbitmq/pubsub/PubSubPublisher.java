@@ -10,9 +10,9 @@ import com.github.rabbitmq.RabbitMQConfig;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
-public class PubSubPublisher {
+import static com.github.rabbitmq.pubsub.Constants.EXCHANGE_NAME;
 
-    static final String EXCHANGE_NAME = "logs";
+public class PubSubPublisher {
 
     public static void main(String[] args) throws IOException, TimeoutException {
         try (Connection connection = RabbitMQConfig.getRabbitMQConnection();

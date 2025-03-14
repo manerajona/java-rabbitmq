@@ -8,7 +8,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.DeliverCallback;
 
-import static com.github.rabbitmq.pubsub.PubSubPublisher.EXCHANGE_NAME;
+import static com.github.rabbitmq.pubsub.Constants.EXCHANGE_NAME;
 
 public class PubSubConsumer {
 

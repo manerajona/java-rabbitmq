@@ -8,7 +8,7 @@ import com.rabbitmq.client.Connection;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-import static com.github.rabbitmq.RabbitMQConstants.*;
+import static com.github.rabbitmq.fanout.Constants.*;
 
 public class FanoutPublisher {
 

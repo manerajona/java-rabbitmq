@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
-import static com.github.rabbitmq.RabbitMQConstants.DIRECT_QUEUE_INFOS_NAME;
+import static com.github.rabbitmq.direct.Constants.DIRECT_QUEUE_INFOS_NAME;
 
 public class DirectConsumer {
 
